@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700&family=Roboto:wght@100;300;400;500&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.righteous {
+    font-family: 'Righteous', cursive;
+}
+
+/* TOPBAR */
+
+.topbar {
+    height: 92px;
+    width: 100%;
+    background-color: #CF2B2B;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+}
+
+.topbar > div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 21px;
+    color: white;
+}
+
+.topbar h1 {
+    font-family: 'Righteous', cursive;
+    font-size: 44px;
+}
+
+.topbar p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+/* TOPBAR */
+
+/* BOTTOMBAR */
+
+.bottombar {
+    height: 92px;
+    width: 100%;
+    background-color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottombar button {
+    background-color: #CBCBCB;
+    border: none;
+    height: 61px;
+    width: 100%;
+    margin: 0px 25px;
+    border-radius: 50px;
+    font-size: 20px;
+    color: white;
+}
+
+/* BOTTOMBAR */
+
+.content {
+    margin: 92px 0;
+    background-color: #E5E5E5;
+    height: 900px;
+}
+
