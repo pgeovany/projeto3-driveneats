@@ -9,9 +9,25 @@ body {
     font-family: 'Righteous', cursive;
 }
 
+ion-icon {
+    color: #32B72F;
+    position: relative;
+    left: 90%;
+    width: 16px;
+    height: 16px;
+    display: none;
+}
+
+/* 
+.checkBorder {
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 5px #32B72F;
+}
+*/
+
 /* TOPBAR */
 
 .topbar {
+    z-index: 1;
     height: 92px;
     width: 100%;
     background-color: #CF2B2B;
@@ -43,6 +59,7 @@ body {
 /* BOTTOMBAR */
 
 .bottombar {
+    z-index: 1;
     height: 92px;
     width: 100%;
     background-color: #FFFFFF;
@@ -108,6 +125,7 @@ body {
     margin-left: 14px;
     margin-right: 14px;
     margin-top: 18px;
+    position: relative;
 }
 
 .item img {
