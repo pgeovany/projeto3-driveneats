@@ -1,25 +1,30 @@
 function select(element) {
-    // console.log(element);
-    // element.classList.toggle("selected");
-    // const checkmark = element.querySelector("ion-icon");
-    // checkmark.classList.toggle("hidden");
     const selected = element.parentElement.querySelector(".selected");
-    if(selected !== null && selected !== element) {
+    const parent = element.parentElement;
+
+    if(selected !== null) {
         selected.classList.remove("selected");
         const checkmark = selected.querySelector("ion-icon");
         checkmark.classList.add("hidden");
+        parent.classList.remove("check");
     }
     else {
          element.classList.add("selected");
          const checkmark = element.querySelector("ion-icon");
          checkmark.classList.remove("hidden");
+         parent.classList.add("check");
     }
-    // price = element.querySelector(".price");
-    // price = Number(price.innerHTML);
-    // console.log(price);
-    checkOut();
+    isReady();
 }
 
-function checkout() {
-    alert("test");
+function isReady() {
+    mainCourse = document.querySelector(".mainCourse");
+    drink = document.querySelector(".drink");
+    dessert = document.querySelector(".dessert");
+
+    if (mainCourse.classList.contains("check") 
+    && drink.classList.contains("check") &&
+    dessert.classList.contains("check")) {
+        console.log("YES!")
+    }
 }
