@@ -24,7 +24,7 @@ body {
     align-items: center;
 }
 
-.topbar > div {
+.topbar>div {
     display: flex;
     flex-direction: column;
     padding-left: 21px;
@@ -94,11 +94,13 @@ body {
     padding-bottom: 17px;
 }
 
-.content > h1:first-child {
+.content>h1:first-child {
     padding-top: 31px;
 }
 
-.mainCourse, .drink, .dessert {
+.mainCourse,
+.drink,
+.dessert {
     padding-left: 19px;
     display: flex;
     width: 100%;
@@ -168,7 +170,7 @@ ion-icon {
 .hidden {
     display: none;
 }
- 
+
 .selected {
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 5px #32B72F;
 }
