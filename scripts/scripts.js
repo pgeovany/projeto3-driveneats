@@ -72,7 +72,16 @@ function removeItem(selected) {
 }
 
 function checkout() {
-    let total = items[0] + items[1] + items[2];
+    let total = 0;
+    let i = 0;
+    while (i < items.length) {
+        total += items[i];
+        i++;
+    }
     total = total.toFixed(2);
-    console.log(total);
+    let name =  prompt("Qual é o seu nome?");
+    let address = prompt("Qual é o seu endereço?");
+    message = `Olá, gostaria de fazer o pedido:\n- Prato: Frango Yin Yang\n- Bebida: Coquinha Gelada\n- Sobremesa: Pudim\nTotal: R$ ${total}\n\nNome: ${name}\nEndereço: ${address}`
+    message = "https://wa.me/?text=" + encodeURIComponent(message);
+    open(message);
 }
