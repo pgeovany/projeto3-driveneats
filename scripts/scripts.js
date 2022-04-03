@@ -1,9 +1,6 @@
-let items = [];
-
 function select(element) {
     const selected = element.parentElement.querySelector(".selected");
     const parent = element.parentElement;
-
 
     //checks whether there's a selected item in the current section.
     //if there is, unselects it and then calls the functions 'notReady()' to
@@ -13,15 +10,6 @@ function select(element) {
         const checkmark = selected.querySelector("ion-icon");
         checkmark.classList.add("hidden");
         parent.classList.remove("check");
-
-        //First, the function 'toFloat' swaps the comma in the prices for a dot and converts
-        //it to a number.
-        //Then then function 'removeItem' checks whether the given item is already on the list
-        //(in case the user selected an item and then unselected it) and if so, removes it.
-
-        //I tried a lot of different things but ended up having to use the price as the 'unique selector'
-        //for the items. I know that's a very poor choice, I'll do better next time.
-        removeItem(toFloat(selected.querySelector("span").innerHTML));
         notReady();
     }
 
@@ -32,8 +20,6 @@ function select(element) {
         const checkmark = element.querySelector("ion-icon");
         checkmark.classList.remove("hidden");
         parent.classList.add("check");
-
-        items.push(toFloat(element.querySelector("span").innerHTML));
         ready();
     }
 }
@@ -43,13 +29,11 @@ function ready() {
     drink = document.querySelector(".drink");
     dessert = document.querySelector(".dessert");
 
-    if (mainCourse.classList.contains("check")
-        && drink.classList.contains("check")
-        && dessert.classList.contains("check")) {
-        
-        document.querySelector(".mainButton").classList.add("hidden");
-        document.querySelector(".checkoutButton").classList.remove("hidden");
-        console.log(items);
+    if (mainCourse.querySelector(".selected")
+        && drink.querySelector(".selected")
+        && dessert.querySelector(".selected")) {
+            document.querySelector(".mainButton").classList.add("hidden");
+            document.querySelector(".checkoutButton").classList.remove("hidden");
     }
 }
 
@@ -63,25 +47,48 @@ function toFloat(element) {
     return Number(element);
 }
 
-function removeItem(selected) {
-    for (let i = 0; i < items.length; i++) {
-        if(items[i] === selected) {
-            items.splice(i, 1);
-        }
-    }
+function getSelectedItem(item){
+    return document.querySelector(`${item}`).querySelector(".selected");
+}
+
+function getItemName(item) {
+    return item.querySelector("h2").innerHTML;
+}
+
+function getPrice(item) {
+    return toFloat(item.querySelector(".price").innerHTML);
 }
 
 function checkout() {
+    let item1 = [];
+    let item2 = [];
+    let item3 = [];
+
     let total = 0;
-    let i = 0;
-    while (i < items.length) {
-        total += items[i];
-        i++;
-    }
-    total = total.toFixed(2);
-    let name =  prompt("Qual é o seu nome?");
-    let address = prompt("Qual é o seu endereço?");
-    message = `Olá, gostaria de fazer o pedido:\n- Prato: Frango Yin Yang\n- Bebida: Coquinha Gelada\n- Sobremesa: Pudim\nTotal: R$ ${total}\n\nNome: ${name}\nEndereço: ${address}`
+
+    //The first index of every item array stores the item's HTML element;
+    //The second index stores the item's name;
+    //The third index stores the item's price.
+
+    item1[0] = getSelectedItem(".mainCourse");
+    item2[0] = getSelectedItem(".drink");
+    item3[0] = getSelectedItem(".dessert");
+
+    item1[1] = getItemName(item1[0]);
+    item2[1] = getItemName(item2[0]);
+    item3[1] = getItemName(item3[0]);
+
+    item1[2] = getPrice(item1[0]);
+    item2[2] = getPrice(item2[0]);
+    item3[2] = getPrice(item3[0]);
+
+    total = (item1[2] + item2[2] + item3[2]).toFixed(2);
+    console.log(total);
+    
+    let userName = prompt("Qual é o seu nome?");
+    let userAddress = prompt("Qual é o seu endereço?");
+
+    message = `Olá, gostaria de fazer o pedido:\n- Prato: ${item1[1]}\n- Bebida: ${item2[1]}\n- Sobremesa: ${item3[1]}\nTotal: R$ ${total}\n\nNome: ${userName}\nEndereço: ${userAddress}`
     message = "https://wa.me/?text=" + encodeURIComponent(message);
     open(message);
 }
