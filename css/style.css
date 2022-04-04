@@ -105,7 +105,16 @@ body {
     display: flex;
     width: 100%;
     margin-bottom: 27px;
+
     overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.mainCourse::-webkit-scrollbar,
+.drink::-webkit-scrollbar,
+.dessert::-webkit-scrollbar {
+    display: none;
 }
 
 .dessert {
