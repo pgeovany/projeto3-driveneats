@@ -9,7 +9,6 @@ function select(element) {
         selected.classList.remove("selected");
         const checkmark = selected.querySelector("ion-icon");
         checkmark.classList.add("hidden");
-        parent.classList.remove("check");
         notReady();
     }
 
@@ -19,7 +18,6 @@ function select(element) {
         element.classList.add("selected");
         const checkmark = element.querySelector("ion-icon");
         checkmark.classList.remove("hidden");
-        parent.classList.add("check");
         ready();
     }
 }
@@ -32,8 +30,8 @@ function ready() {
     if (mainCourse.querySelector(".selected")
         && drink.querySelector(".selected")
         && dessert.querySelector(".selected")) {
-            document.querySelector(".mainButton").classList.add("hidden");
-            document.querySelector(".checkoutButton").classList.remove("hidden");
+        document.querySelector(".mainButton").classList.add("hidden");
+        document.querySelector(".checkoutButton").classList.remove("hidden");
     }
 }
 
@@ -47,7 +45,7 @@ function toFloat(element) {
     return Number(element);
 }
 
-function getSelectedItem(item){
+function getSelectedItem(item) {
     return document.querySelector(`${item}`).querySelector(".selected");
 }
 
@@ -83,12 +81,11 @@ function checkout() {
     item3[2] = getPrice(item3[0]);
 
     total = (item1[2] + item2[2] + item3[2]).toFixed(2);
-    console.log(total);
-    
+
     let userName = prompt("Qual é o seu nome?");
     let userAddress = prompt("Qual é o seu endereço?");
 
-    message = `Olá, gostaria de fazer o pedido:\n- Prato: ${item1[1]}\n- Bebida: ${item2[1]}\n- Sobremesa: ${item3[1]}\nTotal: R$ ${total}\n\nNome: ${userName}\nEndereço: ${userAddress}`
+    let message = `Olá, gostaria de fazer o pedido:\n- Prato: ${item1[1]}\n- Bebida: ${item2[1]}\n- Sobremesa: ${item3[1]}\nTotal: R$ ${total}\n\nNome: ${userName}\nEndereço: ${userAddress}`
     message = "https://wa.me/?text=" + encodeURIComponent(message);
     open(message);
 }

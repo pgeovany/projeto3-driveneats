@@ -122,6 +122,10 @@ body {
     position: relative;
 }
 
+.item:hover {
+    cursor: pointer;
+}
+
 .itemContent {
     margin-left: 14px;
     margin-right: 14px;
@@ -142,6 +146,7 @@ ion-icon {
     height: 87px;
     border-radius: 4px;
     margin-bottom: 8px;
+    object-fit: cover;
 }
 
 .content h2 {
@@ -165,7 +170,7 @@ ion-icon {
 
 /* MAIN CONTENT */
 
-/* HIDDEN STUFF */
+/* HIDDEN */
 
 .hidden {
     display: none;
@@ -174,3 +179,22 @@ ion-icon {
 .selected {
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 5px #32B72F;
 }
+
+/* .confirmOrder {
+    z-index: 2;
+    position: absolute;
+    height: 353px;
+    width: 90%;
+    left: 18px;
+    bottom: 160%;
+    background-color: #50D074;
+    border-radius: 9px;
+}
+
+.confirmOrder>p {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 20px;
+} */
